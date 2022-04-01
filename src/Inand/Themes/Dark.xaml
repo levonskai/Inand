@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <!-- Brush: Fill -->
+    <SolidColorBrush x:Key="PrimaryFillBrush" Color="#BB86FC" o:Freeze="True" />
+
+    <SolidColorBrush x:Key="BackgroundFillBrush" Color="#121212" o:Freeze="True" />
+    <SolidColorBrush x:Key="SurfaceFillBrush" Color="#121212" o:Freeze="True" />
+    <SolidColorBrush x:Key="OverlayFillBrush" Color="#1FFFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="ToolTipFillBrush" Color="#99FFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="ErrorFillBrush" Color="#CF6679" o:Freeze="True" />
+
+
+    <!-- Brush: "On" -->
+    <SolidColorBrush x:Key="OnPrimaryHighBrush" Color="#000000" o:Freeze="True" />
+    <SolidColorBrush x:Key="OnPrimaryMediumBrush" Color="#BD000000" o:Freeze="True" />
+    <SolidColorBrush x:Key="OnPrimaryDisabledBrush" Color="#61000000" o:Freeze="True" />
+
+    <SolidColorBrush x:Key="OnSurfaceHighBrush" Color="#DEFFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="OnSurfaceMediumBrush" Color="#99FFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="OnSurfaceDisabledBrush" Color="#61FFFFFF" o:Freeze="True" />
+
+
+    <!-- Brush: Stroke -->
+    <SolidColorBrush x:Key="OutlineStrokeBrush" Color="#1FFFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="DividerStrokeBrush" Color="#1FFFFFFF" o:Freeze="True" />
+
+
+    <!-- Brush: State -->
+    <SolidColorBrush x:Key="PrimaryStateFocusBrush" Color="#33FFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="PrimaryStateHoverBrush" Color="#14FFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="PrimaryStatePressedBrush" Color="#52FFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="PrimaryStateSelectedBrush" Color="#29FFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="PrimaryStateActivatedBrush" Color="#47FFFFFF" o:Freeze="True" />
+
+    <SolidColorBrush x:Key="SurfaceStateFocusBrush" Color="#1AFFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="SurfaceStateHoverBrush" Color="#0AFFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="SurfaceStatePressedBrush" Color="#29FFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="SurfaceStateSelectedBrush" Color="#14FFFFFF" o:Freeze="True" />
+    <SolidColorBrush x:Key="SurfaceStateActivatedBrush" Color="#24FFFFFF" o:Freeze="True" />
+
+</ResourceDictionary>
