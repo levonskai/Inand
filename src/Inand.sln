@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inand", "Inand\Inand.csproj", "{1A83543E-F89E-4888-9EAD-367DC83A3902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inand.Demo", "Inand.Demo\Inand.Demo.csproj", "{AFC70045-72BF-4080-981A-5792213D5EA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A83543E-F89E-4888-9EAD-367DC83A3902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A83543E-F89E-4888-9EAD-367DC83A3902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A83543E-F89E-4888-9EAD-367DC83A3902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A83543E-F89E-4888-9EAD-367DC83A3902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC70045-72BF-4080-981A-5792213D5EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC70045-72BF-4080-981A-5792213D5EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC70045-72BF-4080-981A-5792213D5EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC70045-72BF-4080-981A-5792213D5EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C2CCE89-1754-4B1D-9FD7-B2E412C96CD2}
+	EndGlobalSection
+EndGlobal
