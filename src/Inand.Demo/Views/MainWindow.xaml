@@ -1,6 +1,7 @@
 ﻿<Window x:Class="Inand.Demo.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:in="https://github.com/levonskai/Inand"
         Title="Inand.Demo"
         Background="{DynamicResource BackgroundFillBrush}"
         Width="1350"
@@ -11,187 +12,40 @@
         <Style TargetType="Label">
             <Setter Property="Foreground"
                     Value="{DynamicResource OnSurfaceHighBrush}" />
+            <Setter Property="in:CornerRadiusAssist.CornerRadius"
+                    Value="{DynamicResource CornerRadiusDefault}" />
+            <Setter Property="Width"
+                    Value="100" />
             <Setter Property="Height"
-                    Value="34" />
-            <Setter Property="Padding"
-                    Value="8" />
-            <Setter Property="VerticalContentAlignment"
-                    Value="Center" />
+                    Value="100" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Label">
+                        <Border Background="{DynamicResource SurfaceFillBrush}"
+                                BorderBrush="{DynamicResource OutlineStrokeBrush}"
+                                BorderThickness="1"
+                                CornerRadius="{TemplateBinding in:CornerRadiusAssist.CornerRadius}"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <StackPanel Orientation="Horizontal"
-                Margin="16">
-        <StackPanel Width="270">
-            <Label Content="Primary Fill"
-                   Background="{DynamicResource PrimaryFillBrush}"
-                   Foreground="{DynamicResource OnPrimaryHighBrush}" />
-            <Label Content="Primary Disabled (Fill, On)"
-                   Background="{DynamicResource OverlayFillBrush}"
-                   Foreground="{DynamicResource OnSurfaceDisabledBrush}" />
-
-            <Label Content="Background Fill"
-                   Background="{DynamicResource BackgroundFillBrush}"
-                   Margin="0,16,0,0" />
-            <Label Content="Surface Fill"
-                   Background="{DynamicResource SurfaceFillBrush}" />
-            <Label Content="Overlay Fill"
-                   Background="{DynamicResource OverlayFillBrush}" />
-            <Label Content="Error Fill"
-                   Background="{DynamicResource ErrorFillBrush}"
-                   Foreground="{DynamicResource OnPrimaryHighBrush}" />
-
-            <Label Content="ToolTip Fill"
-                   Background="{DynamicResource ToolTipFillBrush}"
-                   Foreground="{DynamicResource OnPrimaryHighBrush}"
-                   Margin="0,16,0,0" />
-
-            <Label Content="Outline Stroke"
-                   BorderBrush="{DynamicResource OutlineStrokeBrush}"
-                   BorderThickness="1"
-                   Margin="0,16,0,0" />
-            <Label Content="Divider Stroke"
-                   BorderBrush="{DynamicResource OutlineStrokeBrush}"
-                   BorderThickness="0,0,0,1" />
-        </StackPanel>
-
-        <StackPanel Width="720"
-                    Margin="8,0,0,0">
-            <Grid Background="{DynamicResource PrimaryFillBrush}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Label Content="On Primary"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.ColumnSpan="3" />
-                <Label Content="High Emphasis"
-                       Background="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.Row="1" />
-                <Label Content="Medium Emphasis"
-                       Background="{DynamicResource OnPrimaryMediumBrush}"
-                       Grid.Column="1"
-                       Grid.Row="1" />
-                <Label Content="Disabled Emphasis"
-                       Background="{DynamicResource OnPrimaryDisabledBrush}"
-                       Grid.Column="2"
-                       Grid.Row="1" />
-            </Grid>
-
-            <Grid Background="{DynamicResource SurfaceFillBrush}"
-                  Margin="0,16,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Label Content="High Emphasis"
-                       Background="{DynamicResource OnSurfaceHighBrush}"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}" />
-                <Label Content="Medium Emphasis"
-                       Background="{DynamicResource OnSurfaceMediumBrush}"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.Column="1" />
-                <Label Content="Disabled Emphasis"
-                       Background="{DynamicResource OnSurfaceDisabledBrush}"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.Column="2" />
-            </Grid>
-
-            <Grid Background="{DynamicResource PrimaryFillBrush}"
-                  Margin="0,32,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Label Content="State (On Primary)"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.ColumnSpan="3" />
-                <Label Content="Focus"
-                       Background="{DynamicResource PrimaryStateFocusBrush}"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.Row="1" />
-                <Label Content="Hover"
-                       Background="{DynamicResource PrimaryStateHoverBrush}"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.Column="1"
-                       Grid.Row="1" />
-                <Label Content="Pressed"
-                       Background="{DynamicResource PrimaryStatePressedBrush}"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.Column="2"
-                       Grid.Row="1" />
-                <Label Content="Selected"
-                       Background="{DynamicResource PrimaryStateSelectedBrush}"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.Column="3"
-                       Grid.Row="1" />
-                <Label Content="Activated"
-                       Background="{DynamicResource PrimaryStateActivatedBrush}"
-                       Foreground="{DynamicResource OnPrimaryHighBrush}"
-                       Grid.Column="4"
-                       Grid.Row="1" />
-            </Grid>
-
-            <Grid Background="{DynamicResource SurfaceFillBrush}"
-                  Margin="0,16,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Label Content="Focus"
-                       Background="{DynamicResource SurfaceStateFocusBrush}" />
-                <Label Content="Hover"
-                       Background="{DynamicResource SurfaceStateHoverBrush}"
-                       Grid.Column="1" />
-                <Label Content="Pressed"
-                       Background="{DynamicResource SurfaceStatePressedBrush}"
-                       Grid.Column="2" />
-                <Label Content="Selected"
-                       Background="{DynamicResource SurfaceStateSelectedBrush}"
-                       Grid.Column="3" />
-                <Label Content="Activated"
-                       Background="{DynamicResource SurfaceStateActivatedBrush}"
-                       Grid.Column="4" />
-            </Grid>
-
-            <Border Background="{DynamicResource SurfaceFillBrush}"
-                    BorderBrush="{DynamicResource OutlineStrokeBrush}"
-                    BorderThickness="1"
-                    CornerRadius="4"
-                    Margin="0,32,0,0"
-                    Padding="16"
-                    HorizontalAlignment="Left"
-                    SnapsToDevicePixels="True">
-                <StackPanel Orientation="Horizontal">
-                    <RadioButton Content="Light"
-                                 IsChecked="True"
-                                 Click="SetLight_Click"
-                                 Foreground="{DynamicResource OnSurfaceHighBrush}"
-                                 BorderBrush="{DynamicResource OnSurfaceMediumBrush}"
-                                 VerticalContentAlignment="Center" />
-                    <RadioButton Content="Dark"
-                                 Click="SetDark_Click"
-                                 Foreground="{DynamicResource OnSurfaceHighBrush}"
-                                 BorderBrush="{DynamicResource OnSurfaceMediumBrush}"
-                                 Margin="16,0,0,0"
-                                 VerticalContentAlignment="Center" />
-                </StackPanel>
-            </Border>
-        </StackPanel>
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+        <Label Content="0"
+               in:CornerRadiusAssist.CornerRadius="0" />
+        <Label Content="0"
+               Margin="16,0,0,0" />
+        <Label Content="0"
+               in:CornerRadiusAssist.CornerRadius="12"
+               Margin="16,0,0,0" />
+        <Label Content="0"
+               in:CornerRadiusAssist.CornerRadius="360"
+               Margin="16,0,0,0" />
     </StackPanel>
 </Window>
