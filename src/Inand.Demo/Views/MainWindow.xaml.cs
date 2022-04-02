@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Inand.Theming;
+using System.Windows;
 
 namespace Inand.Demo.Views
 {
@@ -7,6 +8,17 @@ namespace Inand.Demo.Views
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+        private void SetLight_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources.SetTheme(BaseTheme.Light);
+        }
+
+        private void SetDark_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources.SetTheme(BaseTheme.Dark);
         }
     }
 }

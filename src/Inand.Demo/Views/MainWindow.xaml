@@ -168,6 +168,30 @@
                        Background="{DynamicResource SurfaceStateActivatedBrush}"
                        Grid.Column="4" />
             </Grid>
+
+            <Border Background="{DynamicResource SurfaceFillBrush}"
+                    BorderBrush="{DynamicResource OutlineStrokeBrush}"
+                    BorderThickness="1"
+                    CornerRadius="4"
+                    Margin="0,32,0,0"
+                    Padding="16"
+                    HorizontalAlignment="Left"
+                    SnapsToDevicePixels="True">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Content="Light"
+                                 IsChecked="True"
+                                 Click="SetLight_Click"
+                                 Foreground="{DynamicResource OnSurfaceHighBrush}"
+                                 BorderBrush="{DynamicResource OnSurfaceMediumBrush}"
+                                 VerticalContentAlignment="Center" />
+                    <RadioButton Content="Dark"
+                                 Click="SetDark_Click"
+                                 Foreground="{DynamicResource OnSurfaceHighBrush}"
+                                 BorderBrush="{DynamicResource OnSurfaceMediumBrush}"
+                                 Margin="16,0,0,0"
+                                 VerticalContentAlignment="Center" />
+                </StackPanel>
+            </Border>
         </StackPanel>
     </StackPanel>
 </Window>
