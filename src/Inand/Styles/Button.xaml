@@ -1,0 +1,479 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:asst="clr-namespace:Inand.Assists"
+                    xmlns:cvrt="clr-namespace:Inand.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Inand;component/Dimensions.xaml" />
+        <ResourceDictionary Source="/Inand;component/Styles/FocusVisual.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--#region Style: ButtonContained -->
+    <Style x:Key="ButtonContained"
+           TargetType="Button">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="FocusVisualStyle"
+                Value="{StaticResource FocusVisualDefault}" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="FontSize"
+                Value="14" />
+        <Setter Property="FontWeight"
+                Value="Medium" />
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryFillBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource OnPrimaryHighBrush}" />
+        <Setter Property="asst:IconAssist.Fill"
+                Value="{DynamicResource OnPrimaryHighBrush}" />
+        <Setter Property="asst:CornerRadiusAssist.CornerRadius"
+                Value="{StaticResource CornerRadiusDefault}" />
+        <Setter Property="asst:ElevationAssist.Depth"
+                Value="2" />
+        <Setter Property="asst:IconAssist.Stretch"
+                Value="Uniform" />
+        <Setter Property="asst:IconAssist.Margin"
+                Value="0,0,8,0" />
+        <Setter Property="Padding"
+                Value="12,0,16,0" />
+        <Setter Property="MinWidth"
+                Value="64" />
+        <Setter Property="Height"
+                Value="32" />
+        <Setter Property="asst:IconAssist.Width"
+                Value="14" />
+        <Setter Property="asst:IconAssist.Height"
+                Value="14" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <AdornerDecorator Effect="{TemplateBinding asst:ElevationAssist.Depth, Converter={x:Static cvrt:ShadowConverter.Instance}}">
+                            <Border x:Name="container"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding asst:CornerRadiusAssist.CornerRadius}" />
+                        </AdornerDecorator>
+                        <Border x:Name="overlay"
+                                CornerRadius="{TemplateBinding asst:CornerRadiusAssist.CornerRadius}" />
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Path x:Name="icon"
+                                  Data="{TemplateBinding asst:IconAssist.Geometry}"
+                                  Fill="{TemplateBinding asst:IconAssist.Fill}"
+                                  Stretch="{TemplateBinding asst:IconAssist.Stretch}"
+                                  Margin="{TemplateBinding asst:IconAssist.Margin}"
+                                  Width="{TemplateBinding asst:IconAssist.Width}"
+                                  Height="{TemplateBinding asst:IconAssist.Height}" />
+                            <ContentPresenter x:Name="content"
+                                              RecognizesAccessKey="True" />
+                        </StackPanel>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="asst:IconAssist.HasGeometry"
+                                 Value="False">
+                            <Setter TargetName="icon"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                            <Setter Property="Padding"
+                                    Value="16,0" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter TargetName="container"
+                                    Property="Background"
+                                    Value="{DynamicResource OverlayFillBrush}" />
+                            <Setter TargetName="content"
+                                    Property="TextElement.Foreground"
+                                    Value="{DynamicResource OnSurfaceDisabledBrush}" />
+                            <Setter TargetName="icon"
+                                    Property="Fill"
+                                    Value="{DynamicResource OnSurfaceDisabledBrush}" />
+                            <Setter Property="asst:ElevationAssist.Depth"
+                                    Value="0" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource PrimaryStateFocusBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource PrimaryStateHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource PrimaryStatePressedBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Style: ButtonOutlined -->
+    <Style x:Key="ButtonOutlined"
+           TargetType="Button">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="FocusVisualStyle"
+                Value="{StaticResource FocusVisualDefault}" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="FontSize"
+                Value="14" />
+        <Setter Property="FontWeight"
+                Value="Medium" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryFillBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource OutlineStrokeBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="asst:CornerRadiusAssist.CornerRadius"
+                Value="{StaticResource CornerRadiusDefault}" />
+        <Setter Property="Padding"
+                Value="16,0" />
+        <Setter Property="MinWidth"
+                Value="64" />
+        <Setter Property="Height"
+                Value="32" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="SnapsToDevicePixels"
+                Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="overlay"
+                            Background="Transparent"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding asst:CornerRadiusAssist.CornerRadius}">
+                        <ContentPresenter x:Name="content"
+                                          RecognizesAccessKey="True"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter TargetName="content"
+                                    Property="TextElement.Foreground"
+                                    Value="{DynamicResource OnSurfaceDisabledBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource SurfaceStateFocusBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource SurfaceStateHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource SurfaceStatePressedBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Style: ButtonText -->
+    <Style x:Key="ButtonText"
+           TargetType="Button">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="FocusVisualStyle"
+                Value="{StaticResource FocusVisualDefault}" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="FontSize"
+                Value="14" />
+        <Setter Property="FontWeight"
+                Value="Medium" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryFillBrush}" />
+        <Setter Property="asst:CornerRadiusAssist.CornerRadius"
+                Value="{StaticResource CornerRadiusDefault}" />
+        <Setter Property="Padding"
+                Value="8,0" />
+        <Setter Property="MinWidth"
+                Value="64" />
+        <Setter Property="Height"
+                Value="32" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="overlay"
+                            Background="Transparent"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding asst:CornerRadiusAssist.CornerRadius}">
+                        <ContentPresenter x:Name="content"
+                                          RecognizesAccessKey="True"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter TargetName="content"
+                                    Property="TextElement.Foreground"
+                                    Value="{DynamicResource OnSurfaceDisabledBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource SurfaceStateFocusBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource SurfaceStateHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource SurfaceStatePressedBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Style: ButtonIcon -->
+    <Style x:Key="ButtonIcon"
+           TargetType="Button">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="FocusVisualStyle"
+                Value="{StaticResource FocusVisualDefault}" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="asst:IconAssist.Fill"
+                Value="{DynamicResource PrimaryFillBrush}" />
+        <Setter Property="asst:CornerRadiusAssist.CornerRadius"
+                Value="{StaticResource CornerRadiusDefault}" />
+        <Setter Property="asst:IconAssist.Stretch"
+                Value="Uniform" />
+        <Setter Property="Padding"
+                Value="8" />
+        <Setter Property="asst:IconAssist.Width"
+                Value="16" />
+        <Setter Property="asst:IconAssist.Height"
+                Value="16" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="SnapsToDevicePixels"
+                Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="overlay"
+                            Background="Transparent"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding asst:CornerRadiusAssist.CornerRadius}">
+                        <Path x:Name="icon"
+                              Data="{TemplateBinding asst:IconAssist.Geometry}"
+                              Fill="{TemplateBinding asst:IconAssist.Fill}"
+                              Stretch="{TemplateBinding asst:IconAssist.Stretch}"
+                              Margin="{TemplateBinding Padding}"
+                              Width="{TemplateBinding asst:IconAssist.Width}"
+                              Height="{TemplateBinding asst:IconAssist.Height}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter TargetName="icon"
+                                    Property="Fill"
+                                    Value="{DynamicResource OnSurfaceDisabledBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource SurfaceStateFocusBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource SurfaceStateHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource SurfaceStatePressedBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Style: ButtonFAB -->
+    <Style x:Key="ButtonFAB"
+           TargetType="Button">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="FocusVisualStyle"
+                Value="{StaticResource FocusVisualDefault}" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryFillBrush}" />
+        <Setter Property="asst:IconAssist.Fill"
+                Value="{DynamicResource OnPrimaryHighBrush}" />
+        <Setter Property="asst:CornerRadiusAssist.CornerRadius"
+                Value="360" />
+        <Setter Property="asst:ElevationAssist.Depth"
+                Value="6" />
+        <Setter Property="asst:IconAssist.Stretch"
+                Value="Uniform" />
+        <Setter Property="Width"
+                Value="50" />
+        <Setter Property="Height"
+                Value="50" />
+        <Setter Property="asst:IconAssist.Width"
+                Value="16" />
+        <Setter Property="asst:IconAssist.Height"
+                Value="16" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <AdornerDecorator Effect="{TemplateBinding asst:ElevationAssist.Depth, Converter={x:Static cvrt:ShadowConverter.Instance}}">
+                            <Border x:Name="container"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding asst:CornerRadiusAssist.CornerRadius}" />
+                        </AdornerDecorator>
+                        <Border x:Name="overlay"
+                                CornerRadius="{TemplateBinding asst:CornerRadiusAssist.CornerRadius}" />
+                        <Path x:Name="icon"
+                              Data="{TemplateBinding asst:IconAssist.Geometry}"
+                              Fill="{TemplateBinding asst:IconAssist.Fill}"
+                              Stretch="{TemplateBinding asst:IconAssist.Stretch}"
+                              Margin="{TemplateBinding Padding}"
+                              Width="{TemplateBinding asst:IconAssist.Width}"
+                              Height="{TemplateBinding asst:IconAssist.Height}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="asst:IconAssist.HasGeometry"
+                                 Value="False">
+                            <Setter TargetName="icon"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                            <Setter Property="Padding"
+                                    Value="16,0" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter TargetName="container"
+                                    Property="Background"
+                                    Value="{DynamicResource OverlayFillBrush}" />
+                            <Setter TargetName="icon"
+                                    Property="Fill"
+                                    Value="{DynamicResource OnSurfaceDisabledBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource PrimaryStateFocusBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource PrimaryStateHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Background"
+                                    Value="{DynamicResource PrimaryStatePressedBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Style: Default Button -->
+    <Style TargetType="Button"
+           BasedOn="{StaticResource ButtonContained}" />
+    <!--#endregion-->
+
+</ResourceDictionary>

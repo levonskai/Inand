@@ -3,6 +3,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Inand;component/Dimensions.xaml" />
 
+        <ResourceDictionary Source="/Inand;component/Styles/Button.xaml" />
         <ResourceDictionary Source="/Inand;component/Styles/FocusVisual.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
