@@ -20,43 +20,28 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
         <StackPanel>
-            <CheckBox Content="Label" />
-            <CheckBox Content="Label"
-                      IsChecked="True"
-                      Margin="0,12,0,0" />
-            <CheckBox Content="Label"
-                      IsChecked="{x:Null}"
-                      IsThreeState="True"
-                      Margin="0,12,0,0" />
+            <RadioButton Content="Label" />
+            <RadioButton Content="Label"
+                         IsChecked="True"
+                         Margin="0,12,0,0" />
         </StackPanel>
         <StackPanel Margin="32,0,0,0">
-            <CheckBox Content="Label"
-                      IsEnabled="False" />
-            <CheckBox Content="Label"
-                      IsChecked="True"
-                      IsEnabled="False"
-                      Margin="0,12,0,0" />
-            <CheckBox Content="Label"
-                      IsChecked="{x:Null}"
-                      IsEnabled="False"
-                      IsThreeState="True"
-                      Margin="0,12,0,0" />
+            <RadioButton Content="Label"
+                         IsEnabled="False" />
+            <RadioButton Content="Label"
+                         IsChecked="True"
+                         IsEnabled="False"
+                         Margin="0,12,0,0" />
         </StackPanel>
         <StackPanel Margin="32,0,0,0">
-            <CheckBox Content="Label"
-                      in:BulletAssist.CheckedFill="{DynamicResource OnSurfaceHighBrush}"
-                      in:BulletAssist.OnCheckedFill="{DynamicResource OnPrimaryHighBrush}" />
-            <CheckBox Content="Label" 
-                      in:BulletAssist.CheckedFill="{DynamicResource OnSurfaceHighBrush}"
-                      in:BulletAssist.OnCheckedFill="{DynamicResource OnPrimaryHighBrush}"
-                      IsChecked="True"
-                      Margin="0,12,0,0" />
-            <CheckBox Content="Label"
-                      in:BulletAssist.CheckedFill="{DynamicResource OnSurfaceHighBrush}"
-                      in:BulletAssist.OnCheckedFill="{DynamicResource OnPrimaryHighBrush}"
-                      IsChecked="{x:Null}"
-                      IsThreeState="True"
-                      Margin="0,12,0,0" />
+            <RadioButton Content="Label"
+                         in:BulletAssist.CheckedFill="{DynamicResource OnSurfaceHighBrush}"
+                         in:BulletAssist.OnCheckedFill="{DynamicResource OnPrimaryHighBrush}" />
+            <RadioButton Content="Label" 
+                         in:BulletAssist.CheckedFill="{DynamicResource OnSurfaceHighBrush}"
+                         in:BulletAssist.OnCheckedFill="{DynamicResource OnPrimaryHighBrush}"
+                         IsChecked="True"
+                         Margin="0,12,0,0" />
         </StackPanel>
     </StackPanel>
 </Window>

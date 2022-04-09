@@ -6,6 +6,7 @@
         <ResourceDictionary Source="/Inand;component/Styles/Button.xaml" />
         <ResourceDictionary Source="/Inand;component/Styles/CheckBox.xaml" />
         <ResourceDictionary Source="/Inand;component/Styles/FocusVisual.xaml" />
+        <ResourceDictionary Source="/Inand;component/Styles/RadioButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

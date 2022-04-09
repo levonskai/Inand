@@ -1,0 +1,92 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:asst="clr-namespace:Inand.Assists">
+
+    <!--#region Style: RadioButtonDefault -->
+    <Style x:Key="RadioButtonDefault"
+           TargetType="RadioButton">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="FontSize"
+                Value="14" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource OnSurfaceHighBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource OnSurfaceMediumBrush}" />
+        <Setter Property="asst:BulletAssist.CheckedFill"
+                Value="{DynamicResource PrimaryFillBrush}" />
+        <Setter Property="asst:BulletAssist.OnCheckedFill"
+                Value="{DynamicResource OnPrimaryHighBrush}" />
+        <Setter Property="Padding"
+                Value="12,0,0,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <StackPanel Background="Transparent"
+                                Orientation="Horizontal"
+                                SnapsToDevicePixels="True">
+                        <Grid Width="18"
+                              Height="18">
+                            <Ellipse x:Name="overlay"
+                                     Margin="-8" />
+                            <Ellipse x:Name="bullet"
+                                     Stroke="{TemplateBinding BorderBrush}"
+                                     StrokeThickness="2" />
+                            <Ellipse x:Name="checked"
+                                     Visibility="Hidden"
+                                     Fill="{TemplateBinding asst:BulletAssist.CheckedFill}"
+                                     Margin="5" />
+                        </Grid>
+                        <ContentPresenter RecognizesAccessKey="True"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked"
+                                 Value="True">
+                            <Setter TargetName="checked"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                            <Setter TargetName="bullet"
+                                    Property="Stroke"
+                                    Value="{Binding Path=(asst:BulletAssist.CheckedFill), RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Opacity"
+                                    Value=".38" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Fill"
+                                    Value="{DynamicResource SurfaceStateFocusBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Fill"
+                                    Value="{DynamicResource SurfaceStateHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Fill"
+                                    Value="{DynamicResource SurfaceStatePressedBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Style: Default RadioButton -->
+    <Style TargetType="RadioButton"
+           BasedOn="{StaticResource RadioButtonDefault}" />
+    <!--#endregion-->
+
+</ResourceDictionary>
