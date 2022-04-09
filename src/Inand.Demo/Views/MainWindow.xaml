@@ -9,12 +9,79 @@
         MinWidth="810"
         MinHeight="450">
     <Window.Resources>
-        <Geometry x:Key="AddGeometry">
-            M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z
-        </Geometry>
-        <Geometry x:Key="SubjectGeometry">
-            M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z
-        </Geometry>
+        <Style TargetType="CheckBox">
+            <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+            <Setter Property="Foreground"
+                Value="{DynamicResource OnSurfaceHighBrush}" />
+            <Setter Property="BorderBrush"
+                Value="{DynamicResource OnSurfaceMediumBrush}" />
+            <Setter Property="in:BulletAssist.CheckedFill"
+                Value="{DynamicResource PrimaryFillBrush}" />
+            <Setter Property="in:BulletAssist.OnCheckedFill"
+                Value="{DynamicResource OnPrimaryHighBrush}" />
+            <Setter Property="Padding"
+                Value="12,0,0,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel Background="Transparent"
+                                    Orientation="Horizontal"
+                                    SnapsToDevicePixels="True">
+                            <Grid Width="16"
+                                  Height="16">
+                                <Ellipse x:Name="overlay"
+                                     Margin="-8" />
+                                <Border x:Name="bullet"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="2"
+                                        CornerRadius="2" />
+                                <Path x:Name="checked"
+                                      Visibility="Hidden"
+                                      Data="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                      Fill="{TemplateBinding in:BulletAssist.OnCheckedFill}"
+                                      Stretch="Uniform"
+                                      Margin="2" />
+                                <Separator x:Name="indeterminate"
+                                           Visibility="Hidden"
+                                           Background="{TemplateBinding in:BulletAssist.OnCheckedFill}"
+                                           Margin="3" />
+                            </Grid>
+                            <ContentPresenter RecognizesAccessKey="True"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked"
+                                     Value="True">
+                                <Setter TargetName="checked"
+                                        Property="Visibility"
+                                        Value="Visible" />
+                                <Setter TargetName="bullet"
+                                        Property="Background"
+                                        Value="{Binding Path=(in:BulletAssist.CheckedFill), RelativeSource={RelativeSource TemplatedParent}}" />
+                                <Setter TargetName="bullet"
+                                        Property="BorderThickness"
+                                        Value="0" />
+                            </Trigger>
+                            <Trigger Property="IsChecked"
+                                     Value="{x:Null}">
+                                <Setter TargetName="indeterminate"
+                                        Property="Visibility"
+                                        Value="Visible" />
+                                <Setter TargetName="bullet"
+                                        Property="Background"
+                                        Value="{Binding  Path=(in:BulletAssist.CheckedFill), RelativeSource={RelativeSource TemplatedParent}}" />
+                                <Setter TargetName="bullet"
+                                        Property="BorderThickness"
+                                        Value="0" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Window.ContextMenu>
         <ContextMenu>
@@ -26,56 +93,19 @@
     </Window.ContextMenu>
     <StackPanel HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-        <StackPanel Orientation="Horizontal">
-            <Button Content="LABEL" />
-            <Button Content="LABEL"
-                    in:IconAssist.Geometry="{StaticResource AddGeometry}"
-                    Margin="16,0,0,0" />
-            <Button Content="LABEL"
-                    IsEnabled="False"
-                    in:IconAssist.Geometry="{StaticResource AddGeometry}"
-                    Margin="16,0,0,0" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal"
-                    Margin="0,16,0,0">
-            <Button Content="LABEL"
-                    Style="{StaticResource ButtonOutlined}" />
-            <Button Content="LABEL"
-                    Style="{StaticResource ButtonOutlined}"
-                    IsEnabled="False"
-                    Margin="16,0,0,0" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal"
-                    Margin="0,16,0,0">
-            <Button Content="LABEL"
-                    Style="{StaticResource ButtonText}" />
-            <Button Content="LABEL"
-                    Style="{StaticResource ButtonText}"
-                    IsEnabled="False"
-                    Margin="16,0,0,0" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal"
-                    Margin="0,16,0,0">
-            <Button in:IconAssist.Geometry="{StaticResource SubjectGeometry}"
-                    Style="{StaticResource ButtonIcon}" />
-            <Button in:IconAssist.Geometry="{StaticResource SubjectGeometry}"
-                    BorderBrush="{DynamicResource OutlineStrokeBrush}"
-                    BorderThickness="1"
-                    Style="{StaticResource ButtonIcon}"
-                    Margin="16,0,0,0" />
-            <Button in:IconAssist.Geometry="{StaticResource SubjectGeometry}"
-                    Style="{StaticResource ButtonIcon}"
-                    IsEnabled="False"
-                    Margin="16,0,0,0" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal"
-                    Margin="0,16,0,0">
-            <Button in:IconAssist.Geometry="{StaticResource AddGeometry}"
-                    Style="{StaticResource ButtonFAB}" />
-            <Button in:IconAssist.Geometry="{StaticResource AddGeometry}"
-                    Style="{StaticResource ButtonFAB}"
-                    IsEnabled="False"
-                    Margin="16,0,0,0" />
-        </StackPanel>
+        <CheckBox Content="Label"
+                  in:BulletAssist.CheckedFill="{DynamicResource OnSurfaceHighBrush}"
+                  in:BulletAssist.OnCheckedFill="{DynamicResource OnPrimaryHighBrush}" />
+        <CheckBox Content="Label" 
+                  in:BulletAssist.CheckedFill="{DynamicResource OnSurfaceHighBrush}"
+                  in:BulletAssist.OnCheckedFill="{DynamicResource OnPrimaryHighBrush}"
+                  IsChecked="True"
+                  Margin="0,12,0,0" />
+        <CheckBox Content="Label"
+                  in:BulletAssist.CheckedFill="{DynamicResource OnSurfaceHighBrush}"
+                  in:BulletAssist.OnCheckedFill="{DynamicResource OnPrimaryHighBrush}"
+                  IsChecked="{x:Null}"
+                  IsThreeState="True"
+                  Margin="0,12,0,0" />
     </StackPanel>
 </Window>
