@@ -8,30 +8,6 @@
         Height="810"
         MinWidth="810"
         MinHeight="450">
-    <Window.Resources>
-        <Style TargetType="Label">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource OnSurfaceHighBrush}" />
-            <Setter Property="Width"
-                    Value="100" />
-            <Setter Property="Height"
-                    Value="100" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Label">
-                        <Grid>
-                            <AdornerDecorator Effect="{TemplateBinding Effect}">
-                                <Border Background="{DynamicResource SurfaceFillBrush}"
-                                        CornerRadius="{StaticResource CornerRadiusDefault}" />
-                            </AdornerDecorator>
-                            <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center" />
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Light"
@@ -40,79 +16,30 @@
                       Click="SetDark_Click" />
         </ContextMenu>
     </Window.ContextMenu>
-    <WrapPanel HorizontalAlignment="Center"
-               VerticalAlignment="Center">
-        <Label Content="1"
-               Effect="{StaticResource ShadowDepth1}"
-               Margin="12" />
-        <Label Content="2"
-               Effect="{StaticResource ShadowDepth2}"
-               Margin="12" />
-        <Label Content="3"
-               Effect="{StaticResource ShadowDepth3}"
-               Margin="12" />
-        <Label Content="4"
-               Effect="{StaticResource ShadowDepth4}"
-               Margin="12" />
-        <Label Content="5"
-               Effect="{StaticResource ShadowDepth5}"
-               Margin="12" />
-        <Label Content="6"
-               Effect="{StaticResource ShadowDepth6}"
-               Margin="12" />
-        <Label Content="7"
-               Effect="{StaticResource ShadowDepth7}"
-               Margin="12" />
-        <Label Content="8"
-               Effect="{StaticResource ShadowDepth8}"
-               Margin="12" />
-        <Label Content="9"
-               Effect="{StaticResource ShadowDepth9}"
-               Margin="12" />
-        <Label Content="10"
-               Effect="{StaticResource ShadowDepth10}"
-               Margin="12" />
-        <Label Content="11"
-               Effect="{StaticResource ShadowDepth11}"
-               Margin="12" />
-        <Label Content="12"
-               Effect="{StaticResource ShadowDepth12}"
-               Margin="12" />
-        <Label Content="13"
-               Effect="{StaticResource ShadowDepth13}"
-               Margin="12" />
-        <Label Content="14"
-               Effect="{StaticResource ShadowDepth14}"
-               Margin="12" />
-        <Label Content="15"
-               Effect="{StaticResource ShadowDepth15}"
-               Margin="12" />
-        <Label Content="16"
-               Effect="{StaticResource ShadowDepth16}"
-               Margin="12" />
-        <Label Content="17"
-               Effect="{StaticResource ShadowDepth17}"
-               Margin="12" />
-        <Label Content="18"
-               Effect="{StaticResource ShadowDepth18}"
-               Margin="12" />
-        <Label Content="19"
-               Effect="{StaticResource ShadowDepth19}"
-               Margin="12" />
-        <Label Content="20"
-               Effect="{StaticResource ShadowDepth20}"
-               Margin="12" />
-        <Label Content="21"
-               Effect="{StaticResource ShadowDepth21}"
-               Margin="12" />
-        <Label Content="22"
-               Effect="{StaticResource ShadowDepth22}"
-               Margin="12" />
-        <Label Content="23"
-               Effect="{StaticResource ShadowDepth23}"
-               Margin="12" />
-        <Label Content="24"
-               Effect="{StaticResource ShadowDepth24}"
-               Margin="12" />
-    </WrapPanel>
+    <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+        <StackPanel>
+            <in:ToggleSwitch Content="Label" />
+            <in:ToggleSwitch Content="Label"
+                             IsChecked="True"
+                             Margin="0,12,0,0" />
+        </StackPanel>
+        <StackPanel Margin="32,0,0,0">
+            <in:ToggleSwitch Content="Label"
+                             IsEnabled="False" />
+            <in:ToggleSwitch Content="Label"
+                             IsChecked="True"
+                             IsEnabled="False"
+                             Margin="0,12,0,0" />
+        </StackPanel>
+        <StackPanel Margin="32,0,0,0">
+            <in:ToggleSwitch Content="Label"
+                             in:BulletAssist.CheckedFill="{DynamicResource ErrorFillBrush}" />
+            <in:ToggleSwitch Content="Label" 
+                             in:BulletAssist.CheckedFill="{DynamicResource ErrorFillBrush}"
+                             IsChecked="True"
+                             Margin="0,12,0,0" />
+        </StackPanel>
+    </StackPanel>
 </Window>
