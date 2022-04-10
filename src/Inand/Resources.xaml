@@ -2,6 +2,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Inand;component/Dimensions.xaml" />
+        <ResourceDictionary Source="/Inand;component/Shadows.xaml" />
 
         <ResourceDictionary Source="/Inand;component/Styles/Button.xaml" />
         <ResourceDictionary Source="/Inand;component/Styles/CheckBox.xaml" />
