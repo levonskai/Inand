@@ -1,0 +1,277 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:asst="clr-namespace:Inand.Assists">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Inand;component/Shadows.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--#region Style: SliderThumb -->
+    <Style x:Key="SliderThumb"
+           TargetType="Thumb">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Grid>
+                        <Ellipse x:Name="overlay"
+                                 Margin="-8" />
+                        <AdornerDecorator Effect="{StaticResource ShadowDepth1}">
+                            <Ellipse Fill="{TemplateBinding Background}" />
+                        </AdornerDecorator>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsFocused, RelativeSource={RelativeSource FindAncestor, AncestorType=RangeBase}}"
+                                     Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Fill"
+                                    Value="{DynamicResource SurfaceStateFocusBrush}" />
+                        </DataTrigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Fill"
+                                    Value="{DynamicResource SurfaceStateHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsDragging"
+                                 Value="True">
+                            <Setter TargetName="overlay"
+                                    Property="Fill"
+                                    Value="{DynamicResource SurfaceStatePressedBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Style: SliderRepeatButton -->
+    <Style x:Key="SliderRepeatButton"
+           TargetType="RepeatButton">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding asst:CornerRadiusAssist.CornerRadius}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Template: SliderHorizontal -->
+    <ControlTemplate x:Key="SliderHorizontal"
+                     TargetType="Slider">
+        <StackPanel Background="Transparent"
+                    SnapsToDevicePixels="True">
+            <TickBar x:Name="topTick"
+                     Visibility="Collapsed"
+                     Fill="{TemplateBinding Foreground}"
+                     Placement="Top"
+                     Margin="0,0,0,4"
+                     Height="4" />
+            <Track x:Name="PART_Track">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton x:Name="activeTrack"
+                                  Background="{TemplateBinding Foreground}"
+                                  Style="{StaticResource SliderRepeatButton}"
+                                  Command="{x:Static Slider.DecreaseLarge}"
+                                  asst:CornerRadiusAssist.CornerRadius="2"
+                                  Height="4"
+                                  Margin="0,0,-4,0" />
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton x:Name="inactiveTrack"
+                                  Opacity=".38"
+                                  Background="{TemplateBinding Foreground}"
+                                  Style="{StaticResource SliderRepeatButton}"
+                                  Command="{x:Static Slider.IncreaseLarge}"
+                                  asst:CornerRadiusAssist.CornerRadius="2"
+                                  Height="4"
+                                  Margin="-4,0,0,0" />
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb x:Name="thumb"
+                           Background="{TemplateBinding Foreground}"
+                           Style="{StaticResource SliderThumb}"
+                           Width="18"
+                           Height="18" />
+                </Track.Thumb>
+            </Track>
+            <TickBar x:Name="bottomTick"
+                     Visibility="Collapsed"
+                     Fill="{TemplateBinding Foreground}"
+                     Placement="Bottom"
+                     Margin="0,4,0,0"
+                     Height="4" />
+        </StackPanel>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled"
+                     Value="False">
+                <Setter Property="Opacity"
+                        Value=".38" />
+            </Trigger>
+            <Trigger Property="TickPlacement"
+                     Value="TopLeft">
+                <Setter TargetName="topTick"
+                        Property="Visibility"
+                        Value="Visible" />
+            </Trigger>
+            <Trigger Property="TickPlacement"
+                     Value="BottomRight">
+                <Setter TargetName="bottomTick"
+                        Property="Visibility"
+                        Value="Visible" />
+            </Trigger>
+            <Trigger Property="TickPlacement"
+                     Value="Both">
+                <Setter TargetName="topTick"
+                        Property="Visibility"
+                        Value="Visible" />
+                <Setter TargetName="bottomTick"
+                        Property="Visibility"
+                        Value="Visible" />
+            </Trigger>
+            <Trigger Property="IsDirectionReversed"
+                     Value="True">
+                <Setter TargetName="activeTrack"
+                        Property="Margin"
+                        Value="-4,0,0,0" />
+                <Setter TargetName="inactiveTrack"
+                        Property="Margin"
+                        Value="0,0,-4,0" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!--#endregion-->
+
+    <!--#region Template: SliderVertical -->
+    <ControlTemplate x:Key="SliderVertical"
+                     TargetType="Slider">
+        <StackPanel Background="Transparent"
+                    Orientation="Horizontal"
+                    SnapsToDevicePixels="True">
+            <TickBar x:Name="topTick"
+                     Visibility="Collapsed"
+                     Fill="{TemplateBinding Foreground}"
+                     Placement="Left"
+                     Margin="0,0,4,0"
+                     Width="4" />
+            <Track x:Name="PART_Track">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton x:Name="activeTrack"
+                                  Background="{TemplateBinding Foreground}"
+                                  Style="{StaticResource SliderRepeatButton}"
+                                  Command="{x:Static Slider.DecreaseLarge}"
+                                  asst:CornerRadiusAssist.CornerRadius="2"
+                                  Width="4"
+                                  Margin="0,-4,0,0" />
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton x:Name="inactiveTrack"
+                                  Opacity=".38"
+                                  Background="{TemplateBinding Foreground}"
+                                  Style="{StaticResource SliderRepeatButton}"
+                                  Command="{x:Static Slider.IncreaseLarge}"
+                                  asst:CornerRadiusAssist.CornerRadius="2"
+                                  Width="4"
+                                  Margin="0,0,0,-4" />
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb x:Name="thumb"
+                           Background="{TemplateBinding Foreground}"
+                           Style="{StaticResource SliderThumb}"
+                           Width="18"
+                           Height="18" />
+                </Track.Thumb>
+            </Track>
+            <TickBar x:Name="bottomTick"
+                     Visibility="Collapsed"
+                     Fill="{TemplateBinding Foreground}"
+                     Placement="Right"
+                     Margin="4,0,0,0"
+                     Width="4" />
+        </StackPanel>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled"
+                     Value="False">
+                <Setter Property="Opacity"
+                        Value=".38" />
+            </Trigger>
+            <Trigger Property="TickPlacement"
+                     Value="TopLeft">
+                <Setter TargetName="topTick"
+                        Property="Visibility"
+                        Value="Visible" />
+            </Trigger>
+            <Trigger Property="TickPlacement"
+                     Value="BottomRight">
+                <Setter TargetName="bottomTick"
+                        Property="Visibility"
+                        Value="Visible" />
+            </Trigger>
+            <Trigger Property="TickPlacement"
+                     Value="Both">
+                <Setter TargetName="topTick"
+                        Property="Visibility"
+                        Value="Visible" />
+                <Setter TargetName="bottomTick"
+                        Property="Visibility"
+                        Value="Visible" />
+            </Trigger>
+            <Trigger Property="IsDirectionReversed"
+                     Value="True">
+                <Setter TargetName="activeTrack"
+                        Property="Margin"
+                        Value="0,0,0,-4" />
+                <Setter TargetName="inactiveTrack"
+                        Property="Margin"
+                        Value="0,-4,0,0" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!--#endregion-->
+
+    <!--#region Style: SliderDefault -->
+    <Style x:Key="SliderDefault"
+           TargetType="Slider">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="Stylus.IsPressAndHoldEnabled"
+                Value="False" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryFillBrush}" />
+        <Setter Property="Template"
+                Value="{StaticResource SliderHorizontal}" />
+        <Style.Triggers>
+            <Trigger Property="Orientation"
+                     Value="Vertical">
+                <Setter Property="Template"
+                        Value="{StaticResource SliderVertical}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Style: Default Slider -->
+    <Style TargetType="Slider"
+           BasedOn="{StaticResource SliderDefault}" />
+    <!--#endregion-->
+
+</ResourceDictionary>

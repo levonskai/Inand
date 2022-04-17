@@ -16,30 +16,122 @@
                       Click="SetDark_Click" />
         </ContextMenu>
     </Window.ContextMenu>
-    <StackPanel Orientation="Horizontal"
-                HorizontalAlignment="Center"
+    <StackPanel HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-        <StackPanel>
-            <in:ToggleSwitch Content="Label" />
-            <in:ToggleSwitch Content="Label"
-                             IsChecked="True"
-                             Margin="0,12,0,0" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Slider Value="4"
+                        Width="210" />
+                <Slider Value="4"
+                        IsDirectionReversed="True"
+                        Margin="0,16,0,0"
+                        Width="210" />
+                <Slider Value="4"
+                        AutoToolTipPlacement="TopLeft"
+                        Margin="0,24,0,0"
+                        Width="210" />
+                <Slider Value="4"
+                        IsEnabled="False"
+                        Margin="0,16,0,0"
+                        Width="210" />
+            </StackPanel>
+            <StackPanel Margin="32,0,0,0">
+                <Slider Value="4"
+                        IsSnapToTickEnabled="True"
+                        TickPlacement="TopLeft"
+                        Width="210" />
+                <Slider Value="4"
+                        IsSnapToTickEnabled="True"
+                        TickPlacement="BottomRight"
+                        Margin="0,16,0,0"
+                        Width="210" />
+                <Slider Value="4"
+                        IsEnabled="False"
+                        TickPlacement="Both"
+                        Margin="0,16,0,0"
+                        Width="210" />
+            </StackPanel>
+            <StackPanel Margin="32,0,0,0">
+                <Slider Value="4"
+                        Foreground="{DynamicResource ErrorFillBrush}"
+                        Width="210" />
+                <Slider Value="4"
+                        Foreground="{DynamicResource ErrorFillBrush}"
+                        IsSnapToTickEnabled="True"
+                        TickPlacement="Both"
+                        Margin="0,16,0,0"
+                        Width="210" />
+                <Slider Value="4"
+                        IsEnabled="False"
+                        Foreground="{DynamicResource ErrorFillBrush}"
+                        TickPlacement="Both"
+                        Margin="0,16,0,0"
+                        Width="210" />
+            </StackPanel>
         </StackPanel>
-        <StackPanel Margin="32,0,0,0">
-            <in:ToggleSwitch Content="Label"
-                             IsEnabled="False" />
-            <in:ToggleSwitch Content="Label"
-                             IsChecked="True"
-                             IsEnabled="False"
-                             Margin="0,12,0,0" />
-        </StackPanel>
-        <StackPanel Margin="32,0,0,0">
-            <in:ToggleSwitch Content="Label"
-                             in:BulletAssist.CheckedFill="{DynamicResource ErrorFillBrush}" />
-            <in:ToggleSwitch Content="Label" 
-                             in:BulletAssist.CheckedFill="{DynamicResource ErrorFillBrush}"
-                             IsChecked="True"
-                             Margin="0,12,0,0" />
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,32,0,0">
+            <StackPanel Orientation="Horizontal">
+                <Slider Value="4"
+                        Orientation="Vertical"
+                        Height="210" />
+                <Slider Value="4"
+                        IsDirectionReversed="True"
+                        Orientation="Vertical"
+                        Height="210"
+                        Margin="16,0,0,0" />
+                <Slider Value="4"
+                        AutoToolTipPlacement="TopLeft"
+                        Orientation="Vertical"
+                        Height="210"
+                        Margin="24,0,0,0" />
+                <Slider Value="4"
+                        IsEnabled="False"
+                        Orientation="Vertical"
+                        Height="210"
+                        Margin="16,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="32,0,0,0">
+                <Slider Value="4"
+                        IsSnapToTickEnabled="True"
+                        TickPlacement="TopLeft"
+                        Orientation="Vertical"
+                        Height="210" />
+                <Slider Value="4"
+                        IsSnapToTickEnabled="True"
+                        TickPlacement="BottomRight"
+                        Orientation="Vertical"
+                        Margin="16,0,0,0"
+                        Height="210" />
+                <Slider Value="4"
+                        IsEnabled="False"
+                        TickPlacement="Both"
+                        Orientation="Vertical"
+                        Margin="16,0,0,0"
+                        Height="210" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="32,0,0,0">
+                <Slider Value="4"
+                        Foreground="{DynamicResource ErrorFillBrush}"
+                        Orientation="Vertical"
+                        Height="210" />
+                <Slider Value="4"
+                        Foreground="{DynamicResource ErrorFillBrush}"
+                        IsSnapToTickEnabled="True"
+                        TickPlacement="Both"
+                        Orientation="Vertical"
+                        Margin="16,0,0,0"
+                        Height="210" />
+                <Slider Value="4"
+                        IsEnabled="False"
+                        Foreground="{DynamicResource ErrorFillBrush}"
+                        TickPlacement="Both"
+                        Orientation="Vertical"
+                        Margin="16,0,0,0"
+                        Height="210" />
+            </StackPanel>
         </StackPanel>
     </StackPanel>
 </Window>
