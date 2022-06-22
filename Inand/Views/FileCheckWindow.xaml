@@ -1,0 +1,80 @@
+﻿<Window x:Class="Inand.Views.FileCheckWindow"
+        x:Name="win"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="File Check Wizard"
+        Background="WhiteSmoke"
+        Width="480"
+        Height="134"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display"
+        Loaded="win_Loaded">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22" />
+            <RowDefinition Height="38" />
+            <RowDefinition Height="22" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Location:"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Margin="0,0,8,0" />
+        
+        <TextBox Text="{Binding ElementName=win, Path=FileName}"
+                 Grid.Column="1"
+                 Grid.Row="0"
+                 VerticalContentAlignment="Center"
+                 Margin="0,0,8,0" />
+
+        <Button Content="Browser..."
+                BorderBrush="#FFACACAC"
+                Click="SelectFile_Click"
+                Grid.Column="2"
+                Grid.Row="0"
+                Width="70" />
+
+
+        <TextBlock Text="Password:"
+                   Grid.Column="0"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Margin="0,8,8,8" />
+        
+        <PasswordBox PasswordChanged="PasswordBox_PasswordChanged"
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     VerticalContentAlignment="Center"
+                     Margin="0,8,8,8" />
+
+        
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="3"
+                    HorizontalAlignment="Right">
+            <Button Content="OK"
+                    BorderBrush="#FFACACAC"
+                    IsDefault="True"
+                    Click="Ok_Click"
+                    Width="70"
+                    Margin="0,0,8,0" />
+        
+            <Button Content="Cancel"
+                    BorderBrush="#FFACACAC"
+                    Click="Cancel_Click"
+                    Width="70" />
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inand", "Inand\Inand.csproj", "{838DE81C-15CB-4341-AE7F-C832A90D65D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BInand", "BInand\BInand.csproj", "{9515751A-588E-4852-890F-41708554545E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{F7027C46-1DE5-44E9-9287-7DDAC1AF952C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{838DE81C-15CB-4341-AE7F-C832A90D65D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{838DE81C-15CB-4341-AE7F-C832A90D65D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{838DE81C-15CB-4341-AE7F-C832A90D65D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{838DE81C-15CB-4341-AE7F-C832A90D65D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9515751A-588E-4852-890F-41708554545E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9515751A-588E-4852-890F-41708554545E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9515751A-588E-4852-890F-41708554545E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9515751A-588E-4852-890F-41708554545E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7027C46-1DE5-44E9-9287-7DDAC1AF952C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7027C46-1DE5-44E9-9287-7DDAC1AF952C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7027C46-1DE5-44E9-9287-7DDAC1AF952C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7027C46-1DE5-44E9-9287-7DDAC1AF952C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26BBA56F-77E5-466C-83CD-79584C6C6F25}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,2 @@
+This file is used to create a container file.
+After creating the container file, you can delete it.
